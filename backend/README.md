@@ -20,7 +20,7 @@ pip install -r backend/requirements-backend.txt
 
 3. Deploy the server with `uvicorn` or whatever. 
 ```
-uvicorn backend.main:app --host 0.0.0.0 --port 8000
+uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
 ### Deploy with your domain name
@@ -63,17 +63,14 @@ The Dockerfile should be built when you're in the root directory of Whisper-WebU
 
 1. git clone this repository
 ```
-git clone https://github.com/jhj0517/Whisper-WebUI.git
+git clone https://github.com/jeong-wooseok/Whisper-WebUI.git
 ```
 2. Mount volume paths with your local paths in `docker-compose.yaml`
 https://github.com/jhj0517/Whisper-WebUI/blob/1dd708ec3844dbf0c1f77de9ef5764e883dd4c78/backend/docker-compose.yaml#L12-L15
-3. Build the image
+3. Build the image and Run the container
 ```
-docker compose -f backend/docker-compose.yaml build
-```
-4. Run the container
-```
-docker compose -f backend/docker-compose.yaml up
+cd backend
+docker compose -f backend/docker-compose.yaml up --build
 ```
 
 5. Then you can read docs at `localhost:8000` (default port is set to `8000` in `docker-compose.yaml`) and run your own tests. 
